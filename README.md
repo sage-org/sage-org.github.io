@@ -25,8 +25,12 @@ We provide 2 implementations of the smart client:
 * one in Java as an extension of JENA, we call it [sage-jena](https://github.com/sage-org/sage-jena). 
 * one in pure javascript, we call it [sage-client](https://github.com/sage-org/sage-client).
 
-The server itself is written in python and we call it [(sage-engine)](https://github.com/sage-org/sage-engine)
+The server itself is written in python and we call it [sage-engine](https://github.com/sage-org/sage-engine)
+
+The web application used in the [online demo](http://sage.univ-nantes.fr) has its own repository [Sage-web](https://github.com/sage-org/sage-web). The demo uses a quite usefull widget [sage-widget] that allows a end-user to type a SPARQL query.
 
 ### Contact
 
+SaGe is developped by the [GDD team](https://sites.google.com/site/gddlina/) of [Nantes University](https://english.univ-nantes.fr/universite-de-nantes-welcome-2405740.kjsp?RH=INSTITUTIONNEL_FR&RF=INSTITUTIONNEL_EN) within the [LS2N research lab](https://www.ls2n.fr/?lang=en).
 
+We appreciate your feedback/comments/questions to be sent to our mailing list or our issue tracker on github.
