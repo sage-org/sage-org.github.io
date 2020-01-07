@@ -6,7 +6,7 @@ The SPARQL engine includes a smart Sage client and a Sage SPARQL query server ho
 
 The complete approach and experimental results are available in a Research paper accepted at The Web Conference 2019. Thomas Minier, Hala Skaf-Molli and Pascal Molli. ["SaGe: Web Preemption for Public SPARQL Query services"](https://hal.archives-ouvertes.fr/hal-02017155/document) in Proceedings of the 2019 World Wide Web Conference (WWW'19), San Francisco, USA, May 13-17, 2019.
 
-<a name="preemption">## What is web preemption?</a>
+<a name="preemption"></a>## What is web preemption?
 
 Web preemption is the capacity of a Web server to suspend a running query after a fixed quantum of time and resume the
 next waiting query. Web preemption is similar to time-sharing in operating systems where the web server plays the role of the CPU and web request plays the role of processes. 
