@@ -16,37 +16,17 @@ next waiting query. Web preemption is similar to time-sharing in operating syste
 
 ### SaGe general architecture
 
-The SPARQL engine includes a smart Sage client and a Sage SPARQL query server hosting RDF datasets. 
+The SPARQL engine includes a smart Sage client and a Sage SPARQL query server hosting RDF datasets as depicted in the figure below:
+![smart client](lcls.png)
+
+Preemptable sparql operators are natively implemented in the server. Non-preemptable sparql operators are processed in the smart client.
+
+We provide 2 implementations of the smart client:
+* one in Java as an extension of JENA, we call it [sage-jena](https://github.com/sage-org/sage-jena). 
+* one in pure javascript, we call it [sage-client](https://github.com/sage-org/sage-client).
+
+The server itself is written in python and we call it [(sage-engine)](https://github.com/sage-org/sage-engine)
+
+### Contact
 
 
-
-
-Markdown is a lightweight and easy-to-use syntax for styling your writing. It includes conventions for
-
-```markdown
-Syntax highlighted code block
-
-# Header 1
-## Header 2
-### Header 3
-
-- Bulleted
-- List
-
-1. Numbered
-2. List
-
-**Bold** and _Italic_ and `Code` text
-
-[Link](url) and ![Image](src)
-```
-
-For more details see [GitHub Flavored Markdown](https://guides.github.com/features/mastering-markdown/).
-
-### Jekyll Themes
-
-Your Pages site will use the layout and styles from the Jekyll theme you have selected in your [repository settings](https://github.com/sage-org/sage-org.github.io/settings). The name of this theme is saved in the Jekyll `_config.yml` configuration file.
-
-### Support or Contact
-
-Having trouble with Pages? Check out our [documentation](https://help.github.com/categories/github-pages-basics/) or [contact support](https://github.com/contact) and we’ll help you sort it out.
