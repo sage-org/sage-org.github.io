@@ -1,16 +1,17 @@
 
-Sage is a SPARQL query engine for public Linked Data providers that implements Web preemption. Thanks to web preemption, the Sage server has no time quota and ensures that SPARQL queries delivers complete results. SPARQL queries are suspended by the web server after a fixed quantum of time and resumed upon client request. 
+SaGe is a SPARQL query engine for public Linked Data providers that implements [Web preemption](preemption). Thanks to web preemption, the Sage server has no time quota and ensures that SPARQL queries delivers complete results. 
 
 The SPARQL engine includes a smart Sage client and a Sage SPARQL query server hosting RDF datasets. 
 
 
 The complete approach and experimental results are available in a Research paper accepted at The Web Conference 2019. Thomas Minier, Hala Skaf-Molli and Pascal Molli. ["SaGe: Web Preemption for Public SPARQL Query services"](https://hal.archives-ouvertes.fr/hal-02017155/document) in Proceedings of the 2019 World Wide Web Conference (WWW'19), San Francisco, USA, May 13-17, 2019.
 
-## Welcome to GitHub Pages
+<a name="preemption">## What is web preemption?</a>
 
-You can use the [editor on GitHub](https://github.com/sage-org/sage-org.github.io/edit/master/README.md) to maintain and preview the content for your website in Markdown files.
+Web preemption is the capacity of a Web server to suspend a running query after a fixed quantum of time and resume the
+next waiting query. Web preemption is similar to time-sharing in operating systems where the web server plays the role of the CPU and web request plays the role of processes. 
 
-Whenever you commit to this repository, GitHub Pages will run [Jekyll](https://jekyllrb.com/) to rebuild the pages in your site, from the content in your Markdown files.
+
 
 ### Markdown
 
