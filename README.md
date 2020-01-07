@@ -1,5 +1,5 @@
 
-SaGe is a SPARQL query engine for public Linked Data providers that implements [Web preemption](preemption). Thanks to web preemption, the Sage server has no time quota and ensures that SPARQL queries delivers complete results. 
+SaGe is a SPARQL query engine for public Linked Data providers that implements [Web preemption](#preemption). Thanks to web preemption, the Sage server has no time quota and ensures that SPARQL queries delivers complete results. 
 
 The SPARQL engine includes a smart Sage client and a Sage SPARQL query server hosting RDF datasets. 
 
