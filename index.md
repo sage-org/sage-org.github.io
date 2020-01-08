@@ -1,5 +1,5 @@
 ---
-title: Home  
+title: SaGe  
 subtitle: A Web Preempted SPARQL query Engine for Knowledge Graphs
 layout: page
 callouts: home_callout
