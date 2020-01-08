@@ -1,6 +1,6 @@
 ---
-title: Sage With Sidebar
-subtitle: Sage demo page with a sidebar
+title: SaGe 
+subtitle: a SPARQL query engine for public Linked Data providers
 layout: page
 show_sidebar: true
 ---
