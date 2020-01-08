@@ -1,4 +1,3 @@
-
 ---
 title: Sage With Sidebar
 subtitle: Sage demo page with a sidebar
