@@ -24,7 +24,7 @@ next waiting query. Web preemption is similar to time-sharing in operating syste
 ### SaGe general architecture
 
 The SPARQL engine includes a smart Sage client and a Sage SPARQL query server hosting RDF datasets as depicted in the figure below:
-![smart client](lcls.png | width=100)
+![smart client](lcls.png){:height="50%" width="50%"}
 
 Preemptable sparql operators are natively implemented in the server. Non-preemptable sparql operators are processed in the smart client.
 
