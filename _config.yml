@@ -1,4 +1,9 @@
 #theme: jekyll-theme-architect
 remote_theme: chrisrhymes/bulma-clean-theme
 title: SaGe
-description: a SPARQL query engine for public Linked Data providers
+description: a Web Preempted SPARQL query engine for Knowledge Graphs
+permalink: pretty
+
+paginate: 5
+paginate_path: "/blog/page:num"
+
