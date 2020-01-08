@@ -21,9 +21,10 @@ next waiting query. Web preemption is similar to time-sharing in operating syste
 
 ![web preemption states](state.png)
 
-### SaGe general architecture
+## SaGe general architecture
 
 The SPARQL engine includes a smart Sage client and a Sage SPARQL query server hosting RDF datasets as depicted in the figure below:
+
 ![smart client](lcls.png){:height="30%" width="30%"}
 
 Preemptable sparql operators are natively implemented in the server. Non-preemptable sparql operators are processed in the smart client.
@@ -36,7 +37,7 @@ The server itself is written in python and we call it [sage-engine](https://gith
 
 The web application used in the [online demo](http://sage.univ-nantes.fr) has its own repository [Sage-web](https://github.com/sage-org/sage-web). The demo uses a quite usefull widget [sage-widget] that allows a end-user to type a SPARQL query.
 
-### Contact
+## Contact
 
 SaGe is developped by the [GDD team](https://sites.google.com/site/gddlina/) of [Nantes University](https://english.univ-nantes.fr/universite-de-nantes-welcome-2405740.kjsp?RH=INSTITUTIONNEL_FR&RF=INSTITUTIONNEL_EN) within the [LS2N research lab](https://www.ls2n.fr/?lang=en).
 
