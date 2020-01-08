@@ -5,7 +5,7 @@ layout: page
 callouts: home_callout
 #toc: true
 footer_menu: footer_menu
-hero_height: is-medium
+hero_height: is-small
 show_sidebar: true
 ---
 
