@@ -7,7 +7,7 @@ toc: true
 show_sidebar: true
 ---
 
-# What is SaGe
+# What is SaGe?
 
 SaGe is a SPARQL query engine for knowledge graphs that implements [Web preemption](#preemption). Thanks to web preemption, Sage ensures that any SPARQL query delivers complete results ie. Sparql queries cannot be interrupted after a quota of time fixed by knowledge graph provider. 
 
@@ -24,7 +24,7 @@ next waiting query. Web preemption is similar to time-sharing in operating syste
 
 ![web preemption states](state.png)
 
-# SaGe general architecture
+# SaGe General Architecture
 
 The SPARQL engine includes a smart Sage client and a Sage SPARQL query server hosting RDF datasets as depicted in the figure below:
 
