@@ -1,8 +1,8 @@
 style: is-light
 items:
-  - title: Multiple page layouts
-    subtitle: Including sidebar, menubar, tabs and callouts
-    icon: fa-copy
+  - title: SPARQL 1.1
+    subtitle: with SPARQL update
+    icon: check
   - title: Blog included
     subtitle: Layouts for blog and post pages included
     icon: fa-mail-bulk
