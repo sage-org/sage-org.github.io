@@ -1,12 +1,23 @@
 #theme: jekyll-theme-architect
 remote_theme: chrisrhymes/bulma-clean-theme
 title: SaGe
-description: a Web Preempted SPARQL query engine for Knowledge Graphs
+tagline: The SaGe Web Preempted Web Site
+email: sage@univ-nantes.fr
+description: >
+  a Web Preempted SPARQL query engine for Knowledge Graphs
+url: "https://sage-org.github.io"
 permalink: pretty
-
 favicon: /sage_logo.png
 footer_menu: home_footer
 
 paginate: 5
 paginate_path: "/blog/page:num"
+
+# Disqus Comments
+disqus:
+  # Leave shortname blank to disable comments site-wide.
+  # Disable comments for any post by adding `comments: false` to that post's YAML Front Matter.
+  # shortname: my_disqus_shortname
+  shortname: gddteam
+
 
