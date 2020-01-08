@@ -3,10 +3,10 @@ items:
   - title: SPARQL 1.1
     subtitle: with SPARQL update
     icon: fa-check
-  - title: Blog included
-    subtitle: Layouts for blog and post pages included
-    icon: fa-mail-bulk
-  - title: Works with GitHub Pages
-    subtitle: Quick and easy to get started
-    icon: fab fa-github
+  - title: Web Preempted Server
+    subtitle: Get rid of time quotas
+    icon: fa-play
+  - title: Smart Client
+    subtitle: Monitor query progression
+    icon: fa-percent
     
