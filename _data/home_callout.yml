@@ -2,7 +2,7 @@ style: is-light
 items:
   - title: SPARQL 1.1
     subtitle: with SPARQL update
-    icon: check
+    icon: fa-check
   - title: Blog included
     subtitle: Layouts for blog and post pages included
     icon: fa-mail-bulk
