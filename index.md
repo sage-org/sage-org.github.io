@@ -27,15 +27,17 @@ The SPARQL engine includes a smart Sage client and a Sage SPARQL query server ho
 
 ![smart client](lcls.png){:height="30%" width="30%"}
 
-Preemptable sparql operators are natively implemented in the server. Non-preemptable sparql operators are processed in the smart client.
-
-We provide 2 implementations of the smart client:
+Preemptable sparql operators are natively implemented in the server. Non-preemptable sparql operators are processed in the smart client. We provide 2 implementations of the smart client:
 * one in Java as an extension of JENA, we call it [sage-jena](https://github.com/sage-org/sage-jena). 
 * one in pure javascript, we call it [sage-client](https://github.com/sage-org/sage-client).
 
 The server itself is written in python and we call it [sage-engine](https://github.com/sage-org/sage-engine)
 
+## Additional Software components
+
 The web application used in the [online demo](http://sage.univ-nantes.fr) has its own repository [Sage-web](https://github.com/sage-org/sage-web). The demo uses a quite usefull widget [sage-widget] that allows a end-user to type a SPARQL query.
+
+The sage-web application is able to handle several sage-server URLs. In this case all datasets provided by each SaGe servers are available in SaGe-web. This is a convenient way to build a SaGe portal for portal providers.
 
 ## Contact
 
