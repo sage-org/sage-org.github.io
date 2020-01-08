@@ -4,7 +4,7 @@ subtitle: A Web Preempted SPARQL query Engine for Knowledge Graphs
 layout: page
 callouts: home_callout
 #toc: true
-footer_menu: footer_menu
+footer_menu: home_footer
 hero_height: is-small
 show_sidebar: true
 ---
