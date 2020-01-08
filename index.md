@@ -1,6 +1,6 @@
 ---
-title: SaGe: The Web Preempted SPARQL Engine 
-subtitle: a SPARQL query engine for Knowledge Graphs
+title: SaGe  
+subtitle: A Web Preempted SPARQL query Engine for Knowledge Graphs
 layout: page
 show_sidebar: true
 ---
