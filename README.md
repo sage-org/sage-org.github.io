@@ -1,8 +1,10 @@
 
+---
 title: Sage With Sidebar
 subtitle: Sage demo page with a sidebar
 layout: page
 show_sidebar: true
+---
 
 SaGe is a SPARQL query engine for public knowledge graph that implements [Web preemption](#preemption). Thanks to web preemption, Sage ensures that any SPARQL query delivers complete results ie. Sparql queries cannot be interrupted after a quota of time fixed by knowledge graph provider. 
 
