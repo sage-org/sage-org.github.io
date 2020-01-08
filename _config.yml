@@ -2,6 +2,3 @@
 remote_theme: chrisrhymes/bulma-clean-theme
 title: SaGe
 description: a SPARQL query engine for public Linked Data providers
-plugins:
-  - jekyll-seo-tag
-  
