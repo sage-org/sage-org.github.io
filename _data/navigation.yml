@@ -14,7 +14,7 @@
 - name: Online Demo
   link: http://sage.univ-nantes.fr/
 - name: Documentation
-  link: /documentations/
+  link: https://sage-org.github.io/sage-engine/
 - name: Publications
   link: /publications/
 - name: Blog
