@@ -61,14 +61,14 @@ As the join of tp1 and tp2 can be processed in the server, it is sent to the ser
 
 ## SaGe Software
 
+### SaGe Server
+The server [sage-engine](https://github.com/sage-org/sage-engine) is written in python. It understands natively a lartge part of the SPARQL language including triple patterns, Joins, Filters, Union projection . Data can be stored in [HDT files](http://www.rdfhdt.org/), in a postgres database, or in a HBase database. It is easy to extend storage to other popular datastores such as Cassandra. Except HDT, all backends now support SPARQL 1.1 update.
+
 ### SaGe Smart Clients
 
 Smart clients allows developpers and end-users to execute SPARQL 1.1 queries. We provide 2 implementations of the smart client:
 * [sage-jena](https://github.com/sage-org/sage-jena) is java client written as an extension of JENA.
 * [sage-client](https://github.com/sage-org/sage-client) is javascript client.
-
-### SaGe Server
-The server [sage-engine](https://github.com/sage-org/sage-engine) is written in python. It understands natively a lartge part of the SPARQL language including triple patterns, Joins, Filters, Union projection . Data can be stored in [HDT files](http://www.rdfhdt.org/), in a postgres database, or in a HBase database. It is easy to extend storage to other popular datastores such as Cassandra. Except HDT, all backends now support SPARQL 1.1 update.
 
 
 ### SaGe Web Applications
