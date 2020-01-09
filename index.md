@@ -38,7 +38,7 @@ As we can see, web preemption relies on the interaction between a preemptable we
 
 # What is the exact Role of the Smart Client?
 
-The fundamental role of the smart client is just to examine the resend a suspended query to the server to continue the execution until the query terminates. However, the preemptable server just implements a part of SPARQL, mainly because all SPARQL operators cannot be suspended and resumed in quasi-constant time. For example, interrupting a 'ORDER BY' operator supposes to save the state of all results of the query and is O(|results|). That is why some operators of the SPARQL language are moved on the smart client. This is resumed in the figure below:
+The fundamental role of the smart client is just to examine the resend a suspended query to the server to continue the execution until the query terminates. However, the preemptable server just implements a part of SPARQL, mainly because all SPARQL operators cannot be suspended and resumed in quasi-constant time. For example, interrupting a 'ORDER BY' operator supposes to save the state of all results of the query and is O(size(results)). That is why some operators of the SPARQL language are moved on the smart client. This is resumed in the figure below:
 
 ![smart client](lcls.png){:height="30%" width="30%"}
 
