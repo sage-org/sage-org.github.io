@@ -22,7 +22,7 @@ An online demonstration is available at [sage.univ-nantes.fr](http://sage.univ-n
 # <a name="preemption"></a>What is web preemption?
 
 Web preemption is the capacity of a Web server to suspend a running query after a fixed quantum of time and resume the
-next waiting query. Web preemption is similar to time-sharing in operating systems where the web server plays the role of the CPU and web request plays the role of processes.
+next waiting query. Web preemption is similar to [time-sharing](https://en.wikipedia.org/wiki/Round-robin_scheduling) in operating systems where the web server plays the role of the CPU and web request plays the role of processes.
 
 The figure below represents the possible states for a running query:
 
