@@ -15,7 +15,6 @@ SaGe is a SPARQL query engine for knowledge graphs that implements [Web preempti
 
 * As the the server is fair, Sage ensures that any SPARQL query delivers complete results ie. Sparql queries cannot be interrupted after a quota of time fixed by knowledge graph provider. This is a crucial property for building applications based on online knowledge graphs.
 
-
 The complete approach and experimental results are available in a Research paper accepted at The Web Conference 2019. Thomas Minier, Hala Skaf-Molli and Pascal Molli. ["SaGe: Web Preemption for Public SPARQL Query services"](https://hal.archives-ouvertes.fr/hal-02017155/document) in Proceedings of the 2019 World Wide Web Conference (WWW'19), San Francisco, USA, May 13-17, 2019. [(slides)](https://docs.google.com/presentation/d/1zSMKwTq6N6IJFs4jFkOqRzpfooDDoLGhR-3yYRUSij8/present?slide=id.p)
 
 An online demonstration is available at [sage.univ-nantes.fr](http://sage.univ-nantes.fr)
@@ -54,19 +53,23 @@ One-mapping sparql operators are natively implemented in the server. Full-mappin
 
 ![smart client](lcls.png){:height="30%" width="30%"}
 
-Consequently a query that includes a full mapping operators is processed by sending one-mapping operators on the server with web preemption and the rest of query processing is managed within the smart client.
+Consequently a query that includes a full mapping operators is processed by sending one-mapping operators on the server with web preemption and the rest of query processing is managed within the smart client. For example in the query below:
 
+![smart client](optional.png)
 
+We see
 
+# Software
 
+## Smart Clients
 We provide 2 implementations of the smart client:
 * one in Java as an extension of JENA, we call it [sage-jena](https://github.com/sage-org/sage-jena). 
 * one in pure javascript, we call it [sage-client](https://github.com/sage-org/sage-client).
 
+## Server
 The server itself is written in python and we call it [sage-engine](https://github.com/sage-org/sage-engine)
 
-# Additional Software components
-
+## Web applications
 The web application used in the [online demo](http://sage.univ-nantes.fr) has its own repository [Sage-web](https://github.com/sage-org/sage-web). The demo uses a quite usefull widget [sage-widget](https://github.com/sage-org/sage-widget) that allows a end-user to type a SPARQL query.
 
 The sage-web application is able to handle several sage-server URLs. In this case all datasets provided by each SaGe servers are available in SaGe-web. This is a convenient way to build a SaGe portal for portal providers.
