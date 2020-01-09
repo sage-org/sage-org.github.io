@@ -51,7 +51,7 @@ The fundamental role of the smart client is just to resend a suspended query to 
 
 One-mapping SPARQL operators are natively implemented in the server. Full-mapping SPARQL operators are processed in the smart client. This is summarized  in the following figure:
 
-![smart client](lcls.png){:height="30%" :width="30%"}
+![smart client](lcls.png){:height="30%" width="30%"}
 
 Consequently, a query that includes full mapping operators is processed by sending one-mapping operators to the server with web preemption and the rest of query processing is managed within the smart client. For example, in the following query:
 
