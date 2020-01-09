@@ -45,7 +45,7 @@ The animation below illustrates how web preemption handles one query:
 
 # What is the exact Role of the Smart Client?
 
-The fundamental role of the smart client is just to examine the resend a suspended query to the server to continue the execution until the query terminates. However, the preemptable server just implements a part of SPARQL, mainly because all SPARQL operators cannot be suspended and resumed in quasi-constant time. For example, interrupting a 'ORDER BY' operator supposes to save the state of all results of the query and is O(size(results)). That is why some operators of the SPARQL language are moved on the smart client. We divided SPARQL operators in two categories:
+The fundamental role of the smart client is just to resend a suspended query to the server to continue the execution until the query terminates. However, the preemptable server just implements a part of SPARQL, mainly because all SPARQL operators cannot be suspended and resumed in quasi-constant time. For example, interrupting a 'ORDER BY' operator supposes to save the state of all results of the query and is O(size(results)). That is why some operators of the SPARQL language are moved on the smart client. We divided SPARQL operators in two categories:
 * one-mapping operators ie. operators that can be suspended and resumed in quasi constant time. This incudes triple pattern selection with filter, joins (with index-loop join and merge join), Union, projections.
 * Full-mappings operators ie. operators that require materlizations of results and consequently have serialization time proportional to the size of materialization. This includes OPTIONAL, Groupby and Aggregation function.
 
