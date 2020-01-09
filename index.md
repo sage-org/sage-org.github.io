@@ -38,37 +38,37 @@ Web preemption relies on the interaction between a preemptable web server and a 
 
 * When the server picks a query in the queue, if the query has a save state 'Si', then it restarts the query from this state.
 
-The animation below illustrates how web preemption handles one query:
+The animation below illustrates how web preemption handles a query:
 
 ![web preemption animation](anim.gif)
 
 
-# What is the exact Role of the Smart Client?
+# What is the exact role of the Smart Client?
 
-The fundamental role of the smart client is just to resend a suspended query to the server to continue the execution until the query terminates. However, the preemptable server just implements a part of SPARQL, mainly because all SPARQL operators cannot be suspended and resumed in quasi-constant time. For example, interrupting a 'ORDER BY' operator supposes to save the state of all results of the query and is O(size(results)). That is why some operators of the SPARQL language are moved on the smart client. We divided SPARQL operators in two categories:
-* one-mapping operators ie. operators that can be suspended and resumed in quasi constant time. This incudes triple pattern selection with filter, joins (with index-loop join and merge join), Union, projections.
-* Full-mappings operators ie. operators that require materlizations of results and consequently have serialization time proportional to the size of materialization. This includes OPTIONAL, Groupby and Aggregation function.
+The fundamental role of the smart client is just to resend a suspended query to the server to continue the execution until the query terminates. The preemptable server implements a part of SPARQL query language, mainly because all SPARQL operators cannot be suspended and resumed in quasi-constant time. For example, interrupting an 'ORDER BY' operator supposes to save the state of all results of the query and is O(size(results)). Consequently, some operators of the SPARQL querylanguage are moved to the smart client side. SPARQL operators are divided into two categories:
+* one-mapping operators, i.e.,  operators that can be suspended and resumed in quasi constant time. This incudes triple pattern selection with filters, joins (index-loop join and merge join opertors), Union, projections.
+* Full-mappings operators, i.e.,  operators that require materlization of results and consequently have serialization time proportional to the size of materialization. This includes OPTIONAL, GROUP BY and Aggregation functions.
 
-One-mapping sparql operators are natively implemented in the server. Full-mapping sparql operators are processed in the smart client. This is resumed in the figure below:
+One-mapping SPARQL operators are natively implemented in the server. Full-mapping SPARQL operators are processed in the smart client. This is resumed in the following figure:
 
 ![smart client](lcls.png){:height="30%" width="30%"}
 
-Consequently a query that includes a full mapping operators is processed by sending one-mapping operators on the server with web preemption and the rest of query processing is managed within the smart client. For example in the query below:
+Consequently, a query that includes full mapping operators is processed by sending one-mapping operators to the server with web preemption and the rest of query processing is managed within the smart client. For example in the following query:
 
 ![smart client](optional.png)
 
-As the join of tp1 and tp2 can be processed in the server, it is sent to the server. Then, the OPTIONAL part of the query is managed on the smart client with the BindLeftJoin operator (We have also a OptJoin operator that is more performant). As mappings from Join(tp1,tp2) is obtained from the server, the smart client calls back the server to perform the left-outer join with tp3.
+As the join of tp1 and tp2 can be processed in the server, it is sent to the server. Then, the OPTIONAL part of the query is managed by the smart client with the BindLeftJoin operator. We implemented  also an OptJoin operator that has better performance. As mappings from Join(tp1,tp2) is obtained from the server, the smart client calls back the server to perform the left-outer join with tp3.
 
 # SaGe Software
 
 ## SaGe Smart Clients
 
-Smart clients allows developpers and end-users to execute SPARQL 1.1 queries. We provide 2 implementations of the smart client:
-* [sage-jena](https://github.com/sage-org/sage-jena) is java client written as an extension of JENA.
-* [sage-client](https://github.com/sage-org/sage-client) is javascript client.
+Smart clients allow developpers and end-users to execute SPARQL 1.1 queries. We provide 2 implementations of the smart client:
+* [sage-jena](https://github.com/sage-org/sage-jena) is a java client written as an extension of JENA.
+* [sage-client](https://github.com/sage-org/sage-client) is a javascript client.
 
 ## SaGe Server
-The server [sage-engine](https://github.com/sage-org/sage-engine) is written in python. It understands natively a lartge part of the SPARQL language including triple patterns, Joins, Filters, Union projection . Data can be stored in [HDT files](http://www.rdfhdt.org/), in a postgres database, or in a HBase database. It is easy to extend storage to other popular datastores such as Cassandra. Except HDT, all backends now support SPARQL 1.1 update.
+The server [sage-engine](https://github.com/sage-org/sage-engine) is written in python. It handles natively a large part of the SPARQL language including triple patterns, Joins, Filters, Union, and  projection . Data can be stored in [HDT files](http://www.rdfhdt.org/), in a postgres database, or in a HBase database. It is easy to extend storage to other popular datastores such as Cassandra. All backends, except HDT,  now support SPARQL 1.1 update.
 
 
 ## SaGe Web Applications
