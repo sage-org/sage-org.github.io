@@ -68,7 +68,8 @@ Smart clients allows developpers and end-users to execute SPARQL 1.1 queries. We
 * [sage-client](https://github.com/sage-org/sage-client) is javascript client.
 
 ## Server
-The server [sage-engine](https://github.com/sage-org/sage-engine) is written in python. It understands natively a lartge part of the SPARQL language including triple patterns, Joins, Filters, Union projection . Data can be stored in HDT files, in a postgres database, or in a HBase database. It is easy to extend storage to other popular datastore such as Cassandra.
+The server [sage-engine](https://github.com/sage-org/sage-engine) is written in python. It understands natively a lartge part of the SPARQL language including triple patterns, Joins, Filters, Union projection . Data can be stored in [HDT files](http://www.rdfhdt.org/), in a postgres database, or in a HBase database. It is easy to extend storage to other popular datastores such as Cassandra. Except HDT, all backends now support SPARQL 1.1 update.
+
 
 ## Web applications
 
