@@ -21,7 +21,20 @@ An online demonstration is available at [sage.univ-nantes.fr](http://sage.univ-n
 Web preemption is the capacity of a Web server to suspend a running query after a fixed quantum of time and resume the
 next waiting query. Web preemption is similar to time-sharing in operating systems where the web server plays the role of the CPU and web request plays the role of processes.
 
+The figure below represents the possible states for a running query:
+
 ![web preemption states](state.png)
+
+As we can see, web preemption relies on the interaction between a preemptable web server and a smart client. The smart client can be a small application running in the browser, a standard application running on a desktop computer or embedded in a web application.
+
+* The smart client create a query, send it to the server within a standard web request and wait for answer. 
+
+* The server picks the next waiting web request and start running it for a quantum of time. If the query terminates before the end of the quantum, then the server just send results to the client. if the quantum is exhausted while the query is still running, the server suspend the query, saves its execution state 'Si' and returns the  current results and 'Si' to the client. Then, the server resumes the next waiting query in the waiting queue. 
+
+* When the client receives an answer from the server, it consumes results and examine 'Si'. If 'Si' is not present, then the query is finished and results are complete. If not, it just send 'Si' back to the server.
+
+* When the server picks a query in the queue, if the query has a save state 'Si', then it restarts the query from this state.
+
 
 # SaGe General Architecture
 
