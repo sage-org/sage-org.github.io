@@ -57,19 +57,21 @@ Consequently a query that includes a full mapping operators is processed by send
 
 ![smart client](optional.png)
 
-We see
+As the join of tp1 and tp2 can be processed in the server, it is sent to the server. Then, the OPTIONAL part of the query is managed on the smart client with the BindLeftJoin operator (We have also a OptJoin operator that is more performant). As mappings from Join(tp1,tp2) is obtained from the server, the smart client calls back the server to perform the left-outer join with tp3.
 
-# Software
+# SaGe Software
 
 ## Smart Clients
-We provide 2 implementations of the smart client:
-* one in Java as an extension of JENA, we call it [sage-jena](https://github.com/sage-org/sage-jena). 
-* one in pure javascript, we call it [sage-client](https://github.com/sage-org/sage-client).
+
+Smart clients allows developpers and end-users to execute SPARQL 1.1 queries. We provide 2 implementations of the smart client:
+* [sage-jena](https://github.com/sage-org/sage-jena) is java client written as an extension of JENA.
+* [sage-client](https://github.com/sage-org/sage-client) is javascript client.
 
 ## Server
-The server itself is written in python and we call it [sage-engine](https://github.com/sage-org/sage-engine)
+The server [sage-engine](https://github.com/sage-org/sage-engine) is written in python. It understands natively a lartge part of the SPARQL language including triple patterns, Joins, Filters, Union projection . Data can be stored in HDT files, in a postgres database, or in a HBase database. It is easy to extend storage to other popular datastore such as Cassandra.
 
 ## Web applications
+
 The web application used in the [online demo](http://sage.univ-nantes.fr) has its own repository [Sage-web](https://github.com/sage-org/sage-web). The demo uses a quite usefull widget [sage-widget](https://github.com/sage-org/sage-widget) that allows a end-user to type a SPARQL query.
 
 The sage-web application is able to handle several sage-server URLs. In this case all datasets provided by each SaGe servers are available in SaGe-web. This is a convenient way to build a SaGe portal for portal providers.
