@@ -11,6 +11,8 @@
       link: https://github.com/sage-org/sage-web
     - name: Sage-widget
       link: https://github.com/sage-org/sage-widget
+    - name: Sage-org
+      link: https://github.com/sage-org
 - name: Online Demo
   link: http://sage.univ-nantes.fr/
 - name: Documentation
