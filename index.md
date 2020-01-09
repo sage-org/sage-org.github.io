@@ -73,9 +73,9 @@ The server [sage-engine](https://github.com/sage-org/sage-engine) is written in 
 
 ## SaGe Web Applications
 
-The web application used in the [online demo](http://sage.univ-nantes.fr) has its own repository [Sage-web](https://github.com/sage-org/sage-web). The demo uses a quite usefull widget [sage-widget](https://github.com/sage-org/sage-widget) that allows a end-user to type a SPARQL query.
+The web application used in the [online demo](http://sage.univ-nantes.fr) has its own repository [Sage-web](https://github.com/sage-org/sage-web). The demo uses a widget [sage-widget](https://github.com/sage-org/sage-widget) that allows end-users to edit  a SPARQL query.
 
-The sage-web application is able to handle several sage-server URLs. In this case all datasets provided by each SaGe servers are available in SaGe-web. This is a convenient way to build a SaGe portal for portal providers.
+The sage-web application is able to handle several sage-server URLs. In this case, all datasets provided by SaGe servers are available in SaGe-web. This is a convenient way to build a SaGe portal for portal providers.
 
 # SaGe Contact
 
