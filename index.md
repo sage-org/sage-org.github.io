@@ -8,7 +8,7 @@ hero_height: is-small
 show_sidebar: true
 ---
 
-# What is SaGe?
+## What is SaGe?
 
 SaGe is a [SPARQL](https://en.wikipedia.org/wiki/SPARQL) query engine for [Knowledge Graphs](https://en.wikipedia.org/wiki/Knowledge_Graph) that implements [Web preemption](#preemption). Web preemption ensures 2 main properties:
 * It ensures a fair sharing of server ressources among clients without quotas. A client cannot block the server with a long running query conuming all CPU and memory of the server. Web preemption greatly improves time for first results and average workload completion time.
@@ -19,7 +19,7 @@ The complete approach and experimental results are available in a Research paper
 
 An online demonstration is available at [sage.univ-nantes.fr](http://sage.univ-nantes.fr)
 
-# <a name="preemption"></a>What is web preemption?
+## <a name="preemption"></a>What is web preemption?
 
 Web preemption is the capacity of a Web server to suspend a running query after a fixed quantum of time and resume the
 next waiting query. Web preemption is similar to [time-sharing](https://en.wikipedia.org/wiki/Round-robin_scheduling) in operating systems where the web server plays the role of the CPU and web request plays the role of processes.
@@ -43,7 +43,7 @@ The animation below illustrates how web preemption handles one query:
 ![web preemption animation](anim.gif)
 
 
-# What is the exact Role of the Smart Client?
+## What is the exact Role of the Smart Client?
 
 The fundamental role of the smart client is just to resend a suspended query to the server to continue the execution until the query terminates. However, the preemptable server just implements a part of SPARQL, mainly because all SPARQL operators cannot be suspended and resumed in quasi-constant time. For example, interrupting a 'ORDER BY' operator supposes to save the state of all results of the query and is O(size(results)). That is why some operators of the SPARQL language are moved on the smart client. We divided SPARQL operators in two categories:
 * one-mapping operators ie. operators that can be suspended and resumed in quasi constant time. This incudes triple pattern selection with filter, joins (with index-loop join and merge join), Union, projections.
@@ -59,25 +59,25 @@ Consequently a query that includes a full mapping operators is processed by send
 
 As the join of tp1 and tp2 can be processed in the server, it is sent to the server. Then, the OPTIONAL part of the query is managed on the smart client with the BindLeftJoin operator (We have also a OptJoin operator that is more performant). As mappings from Join(tp1,tp2) is obtained from the server, the smart client calls back the server to perform the left-outer join with tp3.
 
-# SaGe Software
+## SaGe Software
 
-## SaGe Smart Clients
+### SaGe Smart Clients
 
 Smart clients allows developpers and end-users to execute SPARQL 1.1 queries. We provide 2 implementations of the smart client:
 * [sage-jena](https://github.com/sage-org/sage-jena) is java client written as an extension of JENA.
 * [sage-client](https://github.com/sage-org/sage-client) is javascript client.
 
-## SaGe Server
+### SaGe Server
 The server [sage-engine](https://github.com/sage-org/sage-engine) is written in python. It understands natively a lartge part of the SPARQL language including triple patterns, Joins, Filters, Union projection . Data can be stored in [HDT files](http://www.rdfhdt.org/), in a postgres database, or in a HBase database. It is easy to extend storage to other popular datastores such as Cassandra. Except HDT, all backends now support SPARQL 1.1 update.
 
 
-## SaGe Web Applications
+### SaGe Web Applications
 
 The web application used in the [online demo](http://sage.univ-nantes.fr) has its own repository [Sage-web](https://github.com/sage-org/sage-web). The demo uses a quite usefull widget [sage-widget](https://github.com/sage-org/sage-widget) that allows a end-user to type a SPARQL query.
 
 The sage-web application is able to handle several sage-server URLs. In this case all datasets provided by each SaGe servers are available in SaGe-web. This is a convenient way to build a SaGe portal for portal providers.
 
-# SaGe Contact
+## SaGe Contact
 
 SaGe is developped by the [GDD team](https://sites.google.com/site/gddlina/) of [Nantes University](https://english.univ-nantes.fr/universite-de-nantes-welcome-2405740.kjsp?RH=INSTITUTIONNEL_FR&RF=INSTITUTIONNEL_EN) within the [LS2N research lab](https://www.ls2n.fr/?lang=en).
 
