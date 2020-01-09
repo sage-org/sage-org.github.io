@@ -1,10 +1,10 @@
 #theme: jekyll-theme-architect
 remote_theme: chrisrhymes/bulma-clean-theme
 title: SaGe
-tagline: The SaGe Web Preempted Web Site
+tagline: A Preemptive SPARQL Query Engine for Knowledge Graphs
 email: sage@univ-nantes.fr
 description: >
-  a Web Preempted SPARQL query engine for Knowledge Graphs
+  A Preemptive SPARQL Query Engine for Knowledge Graphs
 url: "https://sage-org.github.io"
 permalink: pretty
 favicon: /sage_logo.png
