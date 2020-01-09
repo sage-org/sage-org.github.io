@@ -4,7 +4,7 @@ items:
   - title: SPARQL 1.1
     subtitle: with SPARQL update
     icon: fa-check
-  - title: Web Preempted Server
+  - title: Web Preemption
     subtitle: Get rid of time quotas
     icon: fa-play
   - title: Smart Client
