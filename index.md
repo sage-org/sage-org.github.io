@@ -10,7 +10,11 @@ show_sidebar: true
 
 # What is SaGe?
 
-SaGe is a SPARQL query engine for knowledge graphs that implements [Web preemption](#preemption). Thanks to web preemption, Sage ensures that any SPARQL query delivers complete results ie. Sparql queries cannot be interrupted after a quota of time fixed by knowledge graph provider. 
+SaGe is a SPARQL query engine for knowledge graphs that implements [Web preemption](#preemption). Web preemption ensures 2 main properties:
+* It ensures a fair sharing of server ressources among clients without quotas. A client cannot block the server with a long running query conuming all CPU and memory of the server. Web preemption greatly improves time for results and average workload completion time.
+
+* As the the server is fair, Sage ensures that any SPARQL query delivers complete results ie. Sparql queries cannot be interrupted after a quota of time fixed by knowledge graph provider. This is a crucial property for building applications based on online knowledge graphs.
+
 
 The complete approach and experimental results are available in a Research paper accepted at The Web Conference 2019. Thomas Minier, Hala Skaf-Molli and Pascal Molli. ["SaGe: Web Preemption for Public SPARQL Query services"](https://hal.archives-ouvertes.fr/hal-02017155/document) in Proceedings of the 2019 World Wide Web Conference (WWW'19), San Francisco, USA, May 13-17, 2019. [(slides)](https://docs.google.com/presentation/d/1zSMKwTq6N6IJFs4jFkOqRzpfooDDoLGhR-3yYRUSij8/present?slide=id.p)
 
@@ -42,11 +46,20 @@ The animation below illstrates how web preemption handles one query:
 
 # What is the exact Role of the Smart Client?
 
-The fundamental role of the smart client is just to examine the resend a suspended query to the server to continue the execution until the query terminates. However, the preemptable server just implements a part of SPARQL, mainly because all SPARQL operators cannot be suspended and resumed in quasi-constant time. For example, interrupting a 'ORDER BY' operator supposes to save the state of all results of the query and is O(size(results)). That is why some operators of the SPARQL language are moved on the smart client. This is resumed in the figure below:
+The fundamental role of the smart client is just to examine the resend a suspended query to the server to continue the execution until the query terminates. However, the preemptable server just implements a part of SPARQL, mainly because all SPARQL operators cannot be suspended and resumed in quasi-constant time. For example, interrupting a 'ORDER BY' operator supposes to save the state of all results of the query and is O(size(results)). That is why some operators of the SPARQL language are moved on the smart client. We divided SPARQL operators in two categories:
+* one-mapping operators ie. operators that can be suspended and resumed in quasi constant time. This incudes triple pattern selection with filter, joins (with index-loop join and merge join), Union, projections.
+* Full-mappings operators ie. operators that require materlizations of results and consequently have serialization time proportional to the size of materialization. This includes OPTIONAL, Groupby and Aggregation function.
+
+One-mapping sparql operators are natively implemented in the server. Full-mapping sparql operators are processed in the smart client. This is resumed in the figure below:
 
 ![smart client](lcls.png){:height="30%" width="30%"}
 
-Preemptable sparql operators are natively implemented in the server. Non-preemptable sparql operators are processed in the smart client. We provide 2 implementations of the smart client:
+Consequently a query that includes a full mapping operators is processed by sending one-mapping operators on the server with web preemption and the rest of query processing is managed within the smart client.
+
+
+
+
+We provide 2 implementations of the smart client:
 * one in Java as an extension of JENA, we call it [sage-jena](https://github.com/sage-org/sage-jena). 
 * one in pure javascript, we call it [sage-client](https://github.com/sage-org/sage-client).
 
