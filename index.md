@@ -49,7 +49,7 @@ The fundamental role of the smart client is just to resend a suspended query to 
 * one-mapping operators, i.e.,  operators that can be suspended and resumed in quasi constant time. This includes triple pattern selection with filters, joins (index-loop join and merge join operators), Union, projections.
 * Full-mappings operators, i.e.,  operators that require materialization of results and consequently have serialization time proportional to the size of materialization. This includes OPTIONAL, GROUP BY and Aggregation functions.
 
-One-mapping SPARQL operators are natively implemented in the server. Full-mapping SPARQL operators are processed in the smart client. This is resumed in the following figure:
+One-mapping SPARQL operators are natively implemented in the server. Full-mapping SPARQL operators are processed in the smart client. This is summarized  in the following figure:
 
 ![smart client](lcls.png){:height="30%" width="30%"}
 
