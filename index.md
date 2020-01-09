@@ -11,9 +11,9 @@ show_sidebar: true
 # What is SaGe?
 
 SaGe is a [SPARQL](https://en.wikipedia.org/wiki/SPARQL) query engine for [Knowledge Graphs](https://en.wikipedia.org/wiki/Knowledge_Graph) that implements [Web preemption](#preemption). Web preemption ensures 2 main properties:
-* It ensures a fair sharing of server ressources among clients without quotas. A client cannot block the server with a long running query conuming all CPU and memory of the server. Web preemption greatly improves time for first results and average workload completion time.
+* A fair sharing of server ressources among clients without quotas. A client cannot block the server with a long running query conuming all CPU and memory of the server. Web preemption greatly improves time for first results and average workload completion time.
 
-* As the the server is fair, Sage ensures that any SPARQL query delivers complete results ie. Sparql queries cannot be interrupted after a quota of time fixed by knowledge graph provider. This is a crucial property for building applications based on online knowledge graphs.
+* Any SPARQL query delivers complete results, i.e. SPARQL queries cannot be interrupted after a quota of time fixed by knowledge graph provider. This is a crucial property for building applications based on online knowledge graphs.
 
 The complete approach and experimental results are available in a Research paper accepted at The Web Conference 2019. Thomas Minier, Hala Skaf-Molli and Pascal Molli. ["SaGe: Web Preemption for Public SPARQL Query services"](https://hal.archives-ouvertes.fr/hal-02017155/document) in Proceedings of the 2019 World Wide Web Conference (WWW'19), San Francisco, USA, May 13-17, 2019. [(slides)](https://docs.google.com/presentation/d/1zSMKwTq6N6IJFs4jFkOqRzpfooDDoLGhR-3yYRUSij8/present?slide=id.p)
 
