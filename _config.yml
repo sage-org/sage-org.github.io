@@ -20,6 +20,7 @@ defaults:
       type: "pages"
     values:
       show_sidebar: true
+      hero_height: is-small
   -
     scope:
       path: ""
@@ -29,6 +30,7 @@ defaults:
       layout: post
       image: https://via.placeholder.com/1200x800
       show_sidebar: true
+      hero_height: is-small
 
 # Disqus Comments
 disqus:
