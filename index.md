@@ -13,28 +13,28 @@ show_sidebar: true
 SaGe is a [SPARQL](https://en.wikipedia.org/wiki/SPARQL) query engine for [Knowledge Graphs](https://en.wikipedia.org/wiki/Knowledge_Graph) that implements [Web preemption](#preemption). Web preemption ensures 2 main properties:
 * A fair sharing of server ressources among clients without quotas. A client cannot block the server with a long running query conuming all CPU and memory of the server. Web preemption greatly improves time for first results and average workload completion time.
 
-* Any SPARQL query delivers complete results, i.e. SPARQL queries cannot be interrupted after a quota of time fixed by knowledge graph provider. This is a crucial property for building applications based on online knowledge graphs.
+* Any SPARQL query delivers complete results, i.e. SPARQL queries cannot be interrupted after a quota of time fixed by knowledge graph providers. This is a crucial property for building applications based on online knowledge graphs.
 
-The complete approach and experimental results are available in a Research paper accepted at The Web Conference 2019. Thomas Minier, Hala Skaf-Molli and Pascal Molli. ["SaGe: Web Preemption for Public SPARQL Query services"](https://hal.archives-ouvertes.fr/hal-02017155/document) in Proceedings of the 2019 World Wide Web Conference (WWW'19), San Francisco, USA, May 13-17, 2019. [(slides)](https://docs.google.com/presentation/d/1zSMKwTq6N6IJFs4jFkOqRzpfooDDoLGhR-3yYRUSij8/present?slide=id.p)
+The complete approach and experimental results are available in a Research paper published at The Web Conference 2019. Thomas Minier, Hala Skaf-Molli and Pascal Molli. ["SaGe: Web Preemption for Public SPARQL Query services"](https://hal.archives-ouvertes.fr/hal-02017155/document) in Proceedings of the 2019 World Wide Web Conference (WWW'19), San Francisco, USA, May 13-17, 2019. [(slides)](https://docs.google.com/presentation/d/1zSMKwTq6N6IJFs4jFkOqRzpfooDDoLGhR-3yYRUSij8/present?slide=id.p)
 
 An online demonstration is available at [sage.univ-nantes.fr](http://sage.univ-nantes.fr)
 
 # <a name="preemption"></a>What is web preemption?
 
-Web preemption is the capacity of a Web server to suspend a running query after a fixed quantum of time and resume the
-next waiting query. Web preemption is similar to [time-sharing](https://en.wikipedia.org/wiki/Round-robin_scheduling) in operating systems where the web server plays the role of the CPU and web request plays the role of processes.
+Web preemption is the capacity of a web server to suspend a running query after a fixed quantum of time and resume the
+next waiting query. Web preemption is similar to [time-sharing](https://en.wikipedia.org/wiki/Round-robin_scheduling) in operating systems where the web server plays the role of the CPU and web requests play the role of processes.
 
 The figure below represents the possible states for a running query:
 
 ![web preemption states](state.png)
 
-As we can see, web preemption relies on the interaction between a preemptable web server and a smart client. The smart client can be a small application running in the browser, a standard application running on a desktop computer or embedded in a web application.
+Web preemption relies on the interaction between a preemptable web server and a smart client. The smart client can be a small application running in the browser, a standard application running on a desktop computer or embedded in a web application.
 
-* The smart client create a query, send it to the server within a standard web request and wait for answer. 
+* The smart client creates a query, submits it to the server within a standard web request and waits for answers. 
 
-* The server picks the next waiting web request and start running it for a quantum of time. If the query terminates before the end of the quantum, then the server just send results to the client. if the quantum is exhausted while the query is still running, the server suspend the query, saves its execution state 'Si' and returns the  current results and 'Si' to the client. Then, the server resumes the next waiting query in the waiting queue. 
+* The server picks the next waiting web request and start running it for a quantum of time. If the query terminates before the end of the quantum, then the server just send results to the client. If the quantum is exhausted while the query is still running, the server suspends the query, saves its execution state 'Si' and returns the  current results and 'Si' to the client. Then, the server resumes the next waiting query in the waiting queue. 
 
-* When the client receives an answer from the server, it consumes results and examine 'Si'. If 'Si' is not present, then the query is finished and results are complete. If not, it just send 'Si' back to the server.
+* When the client receives an answer from the server, it consumes results and examines 'Si'. If 'Si' is not present, then the query is finished and results are complete. If not, the client sends 'Si' back to the server.
 
 * When the server picks a query in the queue, if the query has a save state 'Si', then it restarts the query from this state.
 
