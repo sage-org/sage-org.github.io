@@ -11,7 +11,7 @@ show_sidebar: true
 # What is SaGe?
 
 SaGe is a [SPARQL](https://en.wikipedia.org/wiki/SPARQL) query engine for [Knowledge Graphs](https://en.wikipedia.org/wiki/Knowledge_Graph) that implements [Web preemption](#preemption). Web preemption ensures 2 main properties:
-* A fair sharing of server ressources among clients without quotas. A client cannot block the server with a long running query conuming all CPU and memory of the server. Web preemption greatly improves time for first results and average workload completion time.
+* A fair sharing of server resources among clients without quotas. A client cannot block the server with a long running query consuming all CPU and memory of the server. Web preemption greatly improves time for first results and average workload completion time.
 
 * Any SPARQL query delivers complete results, i.e. SPARQL queries cannot be interrupted after a quota of time fixed by knowledge graph providers. This is a crucial property for building applications based on online knowledge graphs.
 
@@ -32,7 +32,7 @@ Web preemption relies on the interaction between a preemptable web server and a 
 
 * The smart client creates a query, submits it to the server within a standard web request and waits for answers. 
 
-* The server picks the next waiting web request and start running it for a quantum of time. If the query terminates before the end of the quantum, then the server just send results to the client. If the quantum is exhausted while the query is still running, the server suspends the query, saves its execution state 'Si' and returns the  current results and 'Si' to the client. Then, the server resumes the next waiting query in the waiting queue. 
+* The server picks the next waiting web request and start running it for a quantum of time. If the query terminates before the end of the quantum, then the server just sends results to the client. If the quantum is exhausted while the query is still running, the server suspends the query, saves its execution state 'Si' and returns the  current results and 'Si' to the client. Then, the server resumes the next waiting query in the waiting queue. 
 
 * When the client receives an answer from the server, it consumes results and examines 'Si'. If 'Si' is not present, then the query is finished and results are complete. If not, the client sends 'Si' back to the server.
 
@@ -45,15 +45,15 @@ The animation below illustrates how web preemption handles a query:
 
 # What is the exact role of the Smart Client?
 
-The fundamental role of the smart client is just to resend a suspended query to the server to continue the execution until the query terminates. The preemptable server implements a part of SPARQL query language, mainly because all SPARQL operators cannot be suspended and resumed in quasi-constant time. For example, interrupting an 'ORDER BY' operator supposes to save the state of all results of the query and is O(size(results)). Consequently, some operators of the SPARQL querylanguage are moved to the smart client side. SPARQL operators are divided into two categories:
-* one-mapping operators, i.e.,  operators that can be suspended and resumed in quasi constant time. This incudes triple pattern selection with filters, joins (index-loop join and merge join opertors), Union, projections.
-* Full-mappings operators, i.e.,  operators that require materlization of results and consequently have serialization time proportional to the size of materialization. This includes OPTIONAL, GROUP BY and Aggregation functions.
+The fundamental role of the smart client is just to resend a suspended query to the server to continue the execution until the query terminates. The preemptable server implements some operators of  SPARQL query language, mainly because all SPARQL operators cannot be suspended and resumed in quasi-constant time. For example, interrupting an 'ORDER BY' operator supposes to save the state of all results of the query and is O(size(results)). Consequently, some operators of the SPARQL query language are moved to the smart client side. SPARQL operators are divided into two categories:
+* one-mapping operators, i.e.,  operators that can be suspended and resumed in quasi constant time. This includes triple pattern selection with filters, joins (index-loop join and merge join operators), Union, projections.
+* Full-mappings operators, i.e.,  operators that require materialization of results and consequently have serialization time proportional to the size of materialization. This includes OPTIONAL, GROUP BY and Aggregation functions.
 
 One-mapping SPARQL operators are natively implemented in the server. Full-mapping SPARQL operators are processed in the smart client. This is resumed in the following figure:
 
 ![smart client](lcls.png){:height="30%" width="30%"}
 
-Consequently, a query that includes full mapping operators is processed by sending one-mapping operators to the server with web preemption and the rest of query processing is managed within the smart client. For example in the following query:
+Consequently, a query that includes full mapping operators is processed by sending one-mapping operators to the server with web preemption and the rest of query processing is managed within the smart client. For example, in the following query:
 
 ![smart client](optional.png)
 
@@ -63,9 +63,9 @@ As the join of tp1 and tp2 can be processed in the server, it is sent to the ser
 
 ## SaGe Smart Clients
 
-Smart clients allow developpers and end-users to execute SPARQL 1.1 queries. We provide 2 implementations of the smart client:
+Smart clients allow developers and end-users to execute SPARQL 1.1 queries. We provide 2 implementations of the smart client:
 * [sage-jena](https://github.com/sage-org/sage-jena) is a java client written as an extension of JENA.
-* [sage-client](https://github.com/sage-org/sage-client) is a javascript client.
+* [sage-client](https://github.com/sage-org/sage-client) is a JavaScript client.
 
 ## SaGe Server
 The server [sage-engine](https://github.com/sage-org/sage-engine) is written in python. It handles natively a large part of the SPARQL language including triple patterns, Joins, Filters, Union, and  projection . Data can be stored in [HDT files](http://www.rdfhdt.org/), in a postgres database, or in a HBase database. It is easy to extend storage to other popular datastores such as Cassandra. All backends, except HDT,  now support SPARQL 1.1 update.
