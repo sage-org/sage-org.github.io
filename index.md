@@ -61,23 +61,23 @@ As the join of tp1 and tp2 can be processed in the server, it is sent to the ser
 
 # SaGe Software
 
-## Smart Clients
+## SaGe Smart Clients
 
 Smart clients allows developpers and end-users to execute SPARQL 1.1 queries. We provide 2 implementations of the smart client:
 * [sage-jena](https://github.com/sage-org/sage-jena) is java client written as an extension of JENA.
 * [sage-client](https://github.com/sage-org/sage-client) is javascript client.
 
-## Server
+## SaGe Server
 The server [sage-engine](https://github.com/sage-org/sage-engine) is written in python. It understands natively a lartge part of the SPARQL language including triple patterns, Joins, Filters, Union projection . Data can be stored in [HDT files](http://www.rdfhdt.org/), in a postgres database, or in a HBase database. It is easy to extend storage to other popular datastores such as Cassandra. Except HDT, all backends now support SPARQL 1.1 update.
 
 
-## Web applications
+## SaGe Web Applications
 
 The web application used in the [online demo](http://sage.univ-nantes.fr) has its own repository [Sage-web](https://github.com/sage-org/sage-web). The demo uses a quite usefull widget [sage-widget](https://github.com/sage-org/sage-widget) that allows a end-user to type a SPARQL query.
 
 The sage-web application is able to handle several sage-server URLs. In this case all datasets provided by each SaGe servers are available in SaGe-web. This is a convenient way to build a SaGe portal for portal providers.
 
-# Contact
+# SaGe Contact
 
 SaGe is developped by the [GDD team](https://sites.google.com/site/gddlina/) of [Nantes University](https://english.univ-nantes.fr/universite-de-nantes-welcome-2405740.kjsp?RH=INSTITUTIONNEL_FR&RF=INSTITUTIONNEL_EN) within the [LS2N research lab](https://www.ls2n.fr/?lang=en).
 
