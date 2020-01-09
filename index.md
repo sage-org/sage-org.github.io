@@ -3,7 +3,7 @@ title: SaGe
 subtitle: A Web-Preempted SPARQL query Engine for Knowledge Graphs
 layout: page
 callouts: home_callout
-toc: true
+toc: false
 hero_height: is-small
 show_sidebar: true
 ---
