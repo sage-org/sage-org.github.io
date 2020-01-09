@@ -38,7 +38,7 @@ As we can see, web preemption relies on the interaction between a preemptable we
 
 * When the server picks a query in the queue, if the query has a save state 'Si', then it restarts the query from this state.
 
-The animation below illstrates how web preemption handles one query:
+The animation below illustrates how web preemption handles one query:
 
 ![web preemption animation](anim.gif)
 
