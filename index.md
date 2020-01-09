@@ -37,7 +37,7 @@ The server itself is written in python and we call it [sage-engine](https://gith
 
 # Additional Software components
 
-The web application used in the [online demo](http://sage.univ-nantes.fr) has its own repository [Sage-web](https://github.com/sage-org/sage-web). The demo uses a quite usefull widget [sage-widget] that allows a end-user to type a SPARQL query.
+The web application used in the [online demo](http://sage.univ-nantes.fr) has its own repository [Sage-web](https://github.com/sage-org/sage-web). The demo uses a quite usefull widget [sage-widget](https://github.com/sage-org/sage-widget) that allows a end-user to type a SPARQL query.
 
 The sage-web application is able to handle several sage-server URLs. In this case all datasets provided by each SaGe servers are available in SaGe-web. This is a convenient way to build a SaGe portal for portal providers.
 
